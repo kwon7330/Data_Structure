@@ -14,7 +14,8 @@ int main()
 	InsertionSort(iArr,iSize);
 	
 
-
+	// 깃 연결 테스트 중
+	int a = 10;
 
 	return 0;
 }
