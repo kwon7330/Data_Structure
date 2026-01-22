@@ -81,3 +81,54 @@ inline int RecursionFibonacci(int iValue)
 	return RecursionFibonacci(iValue - 1) + RecursionFibonacci(iValue - 2);
 
 }
+
+
+inline int RecursionBinarySearch(int* _iArr, int _iLeft, int _iRight, int iTarget)
+{
+	if (_iLeft <= _iRight)
+	{
+		int iMiddle = (_iLeft + _iRight) / 2;
+
+		if (iTarget < _iArr[iMiddle])
+		{
+			return RecursionBinarySearch(_iArr, _iLeft, _iRight - 1, iTarget);
+		}
+
+		else if (iTarget > _iArr[iMiddle])
+		{
+			return RecursionBinarySearch(_iArr, _iLeft + 1, _iRight, iTarget);
+		}
+
+		else
+			return iMiddle;
+	}
+	return -1;
+}
+
+// ½ÇÆÐ
+void RecursionPermutation(char* _szArr, int _iLeft, int _iRight)
+{
+	if (_iLeft == _iRight)
+	{
+		for (int i = 0; i < _iRight; i++)
+		{
+			cout << _szArr[i] << " ";
+		}
+		cout << endl;
+	}
+	else
+	{
+		for (int i = 0; i < _iRight; i++)
+		{
+			if (i == 0)
+				swap(_szArr[i], _szArr[i]);
+			else
+				swap(_szArr[0], _szArr[i + 1]);
+
+			RecursionPermutation(_szArr, _iLeft + 1, _iRight);
+			_iLeft = 0;
+		}
+
+		cout << endl;
+	}
+}
