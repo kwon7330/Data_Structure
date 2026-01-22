@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+
+using namespace std;
 
 inline int CountTargetNumber(int* _iArr, int iSize, int iTarget)
 {

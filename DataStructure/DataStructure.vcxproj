@@ -123,10 +123,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CMyString.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MySort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CMyString.h" />
     <ClInclude Include="MyRecursion.h" />
     <ClInclude Include="MySearch.h" />
     <ClInclude Include="MySort.h" />
