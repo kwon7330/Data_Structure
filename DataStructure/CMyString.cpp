@@ -102,6 +102,7 @@ void CMyString::Resize(int _iNewSize)
 
 }
 
+
 void CMyString::Print()
 {
     for (int i = 0; i < m_iSize; i++)
@@ -111,6 +112,8 @@ void CMyString::Print()
 
     cout << endl;
 }
+
+
 
 CMyString CMyString::Substr(int _iStart, int _iNum)
 {
@@ -154,14 +157,8 @@ CMyString CMyString::Concat(CMyString App_Str)
     return Result;
 }
 
-CMyString CMyString::Insert(CMyString _t, int _iStart)
-{
-    int iNewSize = m_iSize + _t.Length() + 1;
-    char* strTemp = new char[iNewSize];
-
-    for (int i = 0; i < iNewSize; i++)
-    {
-
-    }
-
-}
+//CMyString CMyString::Insert(CMyString _t, int _iStart)
+//{
+//    int iNewSize = m_iSize + _t.Length() + 1;
+//    char* strTemp = new char[iNewSize];
+//}

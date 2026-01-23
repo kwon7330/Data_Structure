@@ -125,10 +125,12 @@
   <ItemGroup>
     <ClCompile Include="CMyString.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyPolynomial.cpp" />
     <ClCompile Include="MySort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMyString.h" />
+    <ClInclude Include="MyPolynomial.h" />
     <ClInclude Include="MyRecursion.h" />
     <ClInclude Include="MySearch.h" />
     <ClInclude Include="MySort.h" />
