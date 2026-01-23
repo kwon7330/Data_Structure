@@ -112,17 +112,56 @@ void CMyString::Print()
     cout << endl;
 }
 
-CMyString CMyString::Substr(int Start, int iNum)
+CMyString CMyString::Substr(int _iStart, int _iNum)
 {
-    return CMyString();
+
+    char* strTemp = new char[_iNum + 1];
+
+    for (int i = 0; i < _iNum; ++i)
+    {
+        strTemp[i] = m_szStr[_iStart + i];
+    }
+
+    strTemp[_iNum] = '\0';
+
+    CMyString Result(strTemp);
+    delete[] strTemp;
+
+    return Result;
 }
 
 CMyString CMyString::Concat(CMyString App_Str)
 {
-    return CMyString();
+    int iNewSize = m_iSize + App_Str.Length();
+
+    char* strTemp = new char[iNewSize + 1];
+
+    for (int i = 0; i < m_iSize; i++)
+    {
+        strTemp[i] = m_szStr[i];
+    }
+
+    for (int i = 0; i < App_Str.Length(); ++i)
+    {
+        strTemp[m_iSize + i] = App_Str.m_szStr[i];
+    }
+
+    strTemp[iNewSize] = '\0';
+
+    CMyString Result(strTemp);
+    delete[] strTemp;
+
+    return Result;
 }
 
-CMyString CMyString::Insert(CMyString t, int iStart)
+CMyString CMyString::Insert(CMyString _t, int _iStart)
 {
-    return CMyString();
+    int iNewSize = m_iSize + _t.Length() + 1;
+    char* strTemp = new char[iNewSize];
+
+    for (int i = 0; i < iNewSize; i++)
+    {
+
+    }
+
 }
