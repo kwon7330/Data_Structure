@@ -1,5 +1,6 @@
-#include "MySparsePolynomial.h"
 #include <iostream>
+#include "MySparsePolynomial.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int main()
 
 	P1.Print();
 
-	cout << P1.Eval(1) << endl;
+	//cout << P1.Eval(1) << endl;
 
 	P2.NewTerm(1,2);
 	P2.NewTerm(1,1);
