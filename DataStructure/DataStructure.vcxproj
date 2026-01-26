@@ -125,18 +125,22 @@
   <ItemGroup>
     <ClCompile Include="CMyString.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyArray2D.cpp" />
     <ClCompile Include="MyMatrix.cpp" />
     <ClCompile Include="MyPolynomial.cpp" />
     <ClCompile Include="MySort.cpp" />
+    <ClCompile Include="MySparseMatrix.cpp" />
     <ClCompile Include="MySparsePolynomial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMyString.h" />
+    <ClInclude Include="MyArray2D.h" />
     <ClInclude Include="MyMatrix.h" />
     <ClInclude Include="MyPolynomial.h" />
     <ClInclude Include="MyRecursion.h" />
     <ClInclude Include="MySearch.h" />
     <ClInclude Include="MySort.h" />
+    <ClInclude Include="MySparseMatrix.h" />
     <ClInclude Include="MySparsePolynomial.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
