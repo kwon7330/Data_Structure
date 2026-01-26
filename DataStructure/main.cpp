@@ -1,30 +1,23 @@
 #include <iostream>
-#include "MySparsePolynomial.h"
-#include <algorithm>
+#include "MyMatrix.h"
 
 using namespace std;
 
 int main()
 {
-	CMySparsePolynomial P1;
-	CMySparsePolynomial P2;
+	MyMatrix Mat(3,2);
 
-	P1.NewTerm(2,2);
-	P1.NewTerm(1,1);
-	P1.NewTerm(2,1);
+	Mat.Set_Value(0,0,1);
+	Mat.Set_Value(1,1,1);
+	Mat.Set_Value(0,2,1);
 
-	P1.Print();
+	cout << Mat.Get_Value(0, 1) << endl;
 
-	//cout << P1.Eval(1) << endl;
+	Mat.Print();
 
-	P2.NewTerm(1,2);
-	P2.NewTerm(1,1);
+	MyMatrix Mat2(Mat.Transpose());
 
-	P2.Print();
-
-	P1.Add(P2);
-
-	P1.Print();
+	Mat2.Print();
 
 	return 0;
 }
