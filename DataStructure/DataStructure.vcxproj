@@ -142,6 +142,7 @@
     <ClInclude Include="MySort.h" />
     <ClInclude Include="MySparseMatrix.h" />
     <ClInclude Include="MySparsePolynomial.h" />
+    <ClInclude Include="MyStack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

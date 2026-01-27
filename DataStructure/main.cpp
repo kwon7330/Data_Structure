@@ -1,23 +1,32 @@
 #include <iostream>
-#include "MyArray2D.h"
+#include "MyStack.h"
 
 using namespace std;
 
 int main()
 {
-	MyArray2D Mat(3,2);
+	// 문자열 뒤집기
 
-	Mat.Set_Value(0,0,1);
-	Mat.Set_Value(1,1,1);
-	Mat.Set_Value(2,1,1);
+	char szArr[] = "Hello World!";
+	int iSize = sizeof(szArr) - 1;
 
-	cout << Mat.Get_Value(0, 1) << endl;
+	MyStack<char> Stk(iSize);
 
-	Mat.Print();
+	cout << "Input : " << szArr << endl;
 
-	MyArray2D Mat2(Mat.Transpose());
+	for (int i = 0; i < iSize; i++)
+	{
+		Stk.Push_Stack(szArr[i]);
+	}
 
-	Mat2.Print();
+
+	for (int i = 0; i < iSize; i++)
+	{
+		cout << Stk.Top();
+		Stk.Pop_Stack();
+	}
+	
+	cout << endl;
 
 	return 0;
 }

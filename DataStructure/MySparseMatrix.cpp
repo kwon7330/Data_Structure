@@ -50,7 +50,7 @@ void MySparseMatrix::Set_Value(int _iRow, int _iCol, int iValue)
 {
     int iIndex = 0;
 
-    while()
+    
 }
 
 void MySparseMatrix::Print()
