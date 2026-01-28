@@ -133,7 +133,6 @@ inline void MyStack<T>::Pop_Stack()
 
 #pragma endregion
 
-
 #pragma region 미로 찾기
 
 constexpr int iNumRows = 10;
@@ -241,26 +240,24 @@ void RecurMoveDisk(int _iNumDisk, int _iFrom, int _iTemp, int _iTo)
 
 	if (_iNumDisk == 0)
 		return;
-
+	//노트북을 켜놓고 가시다니 이번만 봐드립니다.
 	RecurMoveDisk(_iNumDisk - 1, _iFrom, _iTo, _iTemp);
 	MoveDisk(_iFrom, _iTo);
 	RecurMoveDisk(_iNumDisk - 1, _iTemp, _iFrom, _iTo);
 
-
-
-	/*int iNumDisks = 3;
-
-	for (int i = 0; i < iNumDisks; i++)
-	{
-		Tower[0].Push_Stack(i + 'A');
-	}
-
-	PrintTowers();
-
-	RecurMoveDisk(iNumDisks, 0, 1, 2);
-
-	PrintTowers();*/
-
-
 }
+
+/*int iNumDisks = 3;
+
+for (int i = 0; i < iNumDisks; i++)
+{
+	Tower[0].Push_Stack(i + 'A');
+}
+
+PrintTowers();
+
+RecurMoveDisk(iNumDisks, 0, 1, 2);
+
+PrintTowers();*/
+
 #pragma endregion

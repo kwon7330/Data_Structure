@@ -137,6 +137,7 @@
     <ClInclude Include="MyArray2D.h" />
     <ClInclude Include="MyMatrix.h" />
     <ClInclude Include="MyPolynomial.h" />
+    <ClInclude Include="MyQueue.h" />
     <ClInclude Include="MyRecursion.h" />
     <ClInclude Include="MySearch.h" />
     <ClInclude Include="MySort.h" />
