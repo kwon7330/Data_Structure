@@ -126,6 +126,7 @@
     <ClCompile Include="CMyString.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyArray2D.cpp" />
+    <ClCompile Include="MyDeque.cpp" />
     <ClCompile Include="MyMatrix.cpp" />
     <ClCompile Include="MyPolynomial.cpp" />
     <ClCompile Include="MySort.cpp" />
@@ -135,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="CMyString.h" />
     <ClInclude Include="MyArray2D.h" />
+    <ClInclude Include="MyDeque.h" />
     <ClInclude Include="MyMatrix.h" />
     <ClInclude Include="MyPolynomial.h" />
     <ClInclude Include="MyQueue.h" />

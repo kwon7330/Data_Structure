@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MyQueue.h"
+#include "MyDeque.h"
 
 using namespace std;
 
@@ -12,34 +12,17 @@ void Print_Arr(int* _iArr, int _iSize)
 	cout << endl;
 }
 
-void Josephus(int _iSize, int _iK)
-{
-	MyQueue<int>Queue(_iSize);
 
-	for (int i = 0; i < _iSize; i++)
-	{
-		Queue.Enqueue(i + 1);
-	}
-
-	while (Queue.Size_Queue() != 1)
-	{
-		for (int i = 0; i < _iK - 1; i++)
-		{
-			int iTemp = Queue.Get_Front();
-			Queue.Dequeue();
-			Queue.Enqueue(iTemp);
-		}
-
-		Queue.Dequeue();
-	}
-
-	cout << Queue.Get_Front() << endl;
-}
 
 int main()
 {
-	
-	Josephus(5,2);
+	MyDeque<int>Deq(5);
+
+	for (int i = 0; i < 5; i++)
+		Deq.Push_Front_Deq(0);
+
+
+	cout << Deq.Get_Front() << endl;
 
 	return 0;
 }

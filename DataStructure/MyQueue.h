@@ -18,7 +18,6 @@ public:
 public:
 	bool		isEmpty_Queue();
 	bool		isFull_Queue();
-	
 	int			Size_Queue();
 
 	void		Resize_Queue();
@@ -27,7 +26,7 @@ public:
 	
 
 
-private:
+protected:
 	T*			m_pQueue = { nullptr };
 	int			m_iFront = {};
 	int			m_iRear = {};
@@ -60,7 +59,7 @@ inline MyQueue<T>::~MyQueue()
 template<typename T>
 inline T& MyQueue<T>::Get_Front()
 {
-	return m_pQueue[m_iFront + 1];
+	return m_pQueue[(m_iFront + 1) % m_iCapacity];
 }
 
 template<typename T>
