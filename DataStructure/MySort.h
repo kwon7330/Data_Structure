@@ -28,11 +28,11 @@ int FindMinNumber(int* iArr, int iSize);
 int FindMinNumberIndex(int* iArr, int iSize);
 
 //SelectionSort
-void SelectionSort(int* iArr, int iSize);
+void Selection_Sort(int* iArr, int iSize);
 //BubbleSort
-void BubbleSort(int* iArr, int iSize);
+void Bubble_Sort(int* iArr, int iSize);
 
-void InsertionSort(int* iArr, int iSize);
+void Insertion_Sort(int* iArr, int iSize);
 
 
 #pragma region 정렬 예제 풀이

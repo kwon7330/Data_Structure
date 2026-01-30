@@ -10,31 +10,35 @@ CMyString::CMyString()
 
 CMyString::CMyString(const char* Init)
 {
+    
+    m_iSize = 0;
     while (Init[m_iSize] != '\0')
         m_iSize++;
 
-    m_szStr = new char[m_iSize];
+    m_szStr = new char[m_iSize + 1];
 
     for (int i = 0; i < m_iSize; i++)
     {
         m_szStr[i] = Init[i];
     }
+    m_szStr[m_iSize] = '\0';
+
 }
 
 CMyString::CMyString(const CMyString& str)
 {
-    m_iSize = str.m_iSize;
-    m_szStr = new char[m_iSize];
+    m_szStr = new char[m_iSize + 1];
     for (int i = 0; i < m_iSize; i++)
-    {
         m_szStr[i] = str.m_szStr[i];
-    }
+
+    m_szStr[m_iSize] = '\0';
     
 }
 
 CMyString::~CMyString()
 {
     delete[] m_szStr;
+    m_szStr = nullptr;
 }
 
 bool CMyString::isEmpty()
@@ -67,7 +71,7 @@ int CMyString::Find(CMyString Pat)
 {
     int iIndex = -1;
 
-    for (int i = 0; i < m_iSize - Pat.Length(); i++)
+    for (int i = 0; i <= m_iSize - Pat.Length(); i++)
     {
         for (int j = 0; j < Pat.Length(); j++)
         {
@@ -95,8 +99,7 @@ void CMyString::Resize(int _iNewSize)
 
     delete[] m_szStr;
 
-
-    m_iSize = iSize;
+    m_iSize = _iNewSize;
     m_szStr = pTempStr;
     
 
@@ -157,8 +160,26 @@ CMyString CMyString::Concat(CMyString App_Str)
     return Result;
 }
 
-//CMyString CMyString::Insert(CMyString _t, int _iStart)
-//{
-//    int iNewSize = m_iSize + _t.Length() + 1;
-//    char* strTemp = new char[iNewSize];
-//}
+CMyString CMyString::Insert(CMyString _t, int _iStart)
+{
+    int iNewSize = m_iSize + _t.Length();
+
+    char* strTemp = new char[iNewSize + 1];
+
+    for (int i = 0; i < _iStart; i++)
+        strTemp[i] = m_szStr[i];
+
+    for (int i = 0; i < _t.Length(); i++)
+        strTemp[_iStart + i] = _t.m_szStr[i];
+
+    for (int i = _iStart; i < m_iSize; i++)
+        strTemp[_t.Length() + i] = m_szStr[i];
+
+    strTemp[iNewSize] = '\0';
+
+    CMyString Result(strTemp);
+    delete[] strTemp;
+    strTemp = nullptr;
+
+    return Result;
+}

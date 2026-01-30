@@ -81,56 +81,47 @@ inline int FindMinNumberIndex(int* iArr, int iSize)
 	return iMinIndex;
 }
 
-void SelectionSort(int* iArr, int iSize)
+void Selection_Sort(int* _iArr, int _iSize)
 {
 	int iMinIndex = 0;
 
-	Print(iArr, iSize);
-
-	for (int i = 0; i < iSize - 1; i++)
+	for (int i = 0; i < _iSize - 1; i++)
 	{
 		iMinIndex = i;
 
-		for (int j = i + 1; j < iSize; j++)
+		// 가장 작은 값이 있는 인덱스를 찾는 부분
+		for (int j = i + 1; j < _iSize; j++)
 		{
-			if (iArr[iMinIndex] > iArr[j])
+			if (_iArr[iMinIndex] > _iArr[j])
 				iMinIndex = j;
 		}
-
-		swap(iArr[i], iArr[iMinIndex]);
-
-		Print(iArr, iSize);
-		cout << boolalpha;
-		cout << ChecKSorted(iArr, iSize) << endl;
+		// 가장 작은인덱스를 찾아서 앞에서 부터 바꿔 나간다.
+		swap(_iArr[i], _iArr[iMinIndex]);
 	}
 }
 
-void BubbleSort(int* iArr, int iSize)
+void Bubble_Sort(int* _iArr, int _iSize)
 {
-	//BubbleSort
-	// 중복 검사 제외
-	bool isSorted = { false };
-
-	for (int i = 0; i < iSize - 1; i++)
+	for (int i = 0; i < _iSize - 1; i++)
 	{
-		// 중복 검사 제외
-		for (int j = 0; j < iSize - i - 1; j++)
+		// 조기 종료를 위한 bool 변수를 두고
+		bool isSorted = true;
+
+		for (int j = 0; j < _iSize - i - 1; j++)
 		{
-			if (iArr[j] > iArr[j + 1])
+			if (_iArr[j] > _iArr[j + 1])
 			{
-				swap(iArr[j], iArr[j + 1]);
+				swap(_iArr[j], _iArr[j + 1]);
 				isSorted = false;
 			}
-			else
-				isSorted = true;
 		}
-		Print(iArr, iSize);
+		// 만약 이후 정렬이 되어 있다면 탈출.
 		if (isSorted)
 			break;
 	}
 }
 
-void InsertionSort(int* iArr, int iSize)
+void Insertion_Sort(int* _iArr, int _iSize)
 {
 #pragma region 구현 연습
 
@@ -154,20 +145,20 @@ void InsertionSort(int* iArr, int iSize)
 #pragma endregion
 
 	// 오답 : int i = 0 -> 생각해보니 0은 이미 정렬되어있어서 의미없는 루프 한바퀴를 돈다.
-	for (int i = 1; i < iSize; i++)
+	for (int i = 1; i < _iSize; i++)
 	{
-		int iKey = iArr[i];
+		int iKey = _iArr[i];
 		int j = i;
 		for (; j > 0; j--)
 		{
-			if (iArr[j - 1] <= iKey)
+			if (_iArr[j - 1] <= iKey)
 				break;
-			iArr[j] = iArr[j - 1];
-			Print(iArr, iSize);
+			_iArr[j] = _iArr[j - 1];
 
 		}
-		iArr[j] = iKey;
-		Print(iArr, iSize);
-
+		_iArr[j] = iKey;
 	}
 }
+
+
+

@@ -39,7 +39,7 @@ template<typename T>
 inline MyQueue<T>::MyQueue(int _iCapacity)
 {
 	if (_iCapacity < 2)
-		return;
+		m_iCapacity = 2;
 	
 	m_iCapacity = _iCapacity;
 	m_pQueue = new T[m_iCapacity];
@@ -101,7 +101,7 @@ inline int MyQueue<T>::Size_Queue()
 	}
 	else
 	{
-		return m_iCapacity - (m_iFront - m_iRear)
+		return m_iCapacity - (m_iFront - m_iRear);
 	}
 
 	return 0;
@@ -110,19 +110,22 @@ inline int MyQueue<T>::Size_Queue()
 template<typename T>
 inline void MyQueue<T>::Resize_Queue()
 {
-	T* pNewQueue = new T[m_iCapacity * 2];
-	int iCount = 1;
-	for (int i = m_iFront + 1; i < (m_iRear + 1) % m_iCapacity; i++)
+	int iNewCapacity = m_iCapacity * 2;
+	T* pNewQueue = new T[iNewCapacity];
+
+	int iSize = Size_Queue();
+
+	for (int i = 0; i < iSize; i++)
 	{
-		pNewQueue[iCount] = pNewQueue[i];
-		iCount++;
+		pNewQueue[i + 1] = m_pQueue[(m_iFront + 1 + i) % m_iCapacity];
 	}
 
-	m_iFront = 0;
-	m_iRear = m_iCapacity - 1;
-	m_iCapacity *= 2;
 	delete[] m_pQueue;
+
 	m_pQueue = pNewQueue;
+	m_iFront = 0;
+	m_iRear = iSize;
+	m_iCapacity = iNewCapacity;
 
 }
 
