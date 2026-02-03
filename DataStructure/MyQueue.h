@@ -25,6 +25,8 @@ public:
 	void		Dequeue();
 	
 
+	void		Print_Queue();
+
 
 protected:
 	T*			m_pQueue = { nullptr };
@@ -146,4 +148,24 @@ inline void MyQueue<T>::Dequeue()
 		return;
 
 	m_iFront = (m_iFront + 1) % m_iCapacity;
+}
+
+template<typename T>
+inline void MyQueue<T>::Print_Queue()
+{
+	if (isEmpty_Queue())
+	{
+		cout << "Queue is Empty" << endl;
+		return;
+	}
+
+	int idx = (m_iFront + 1) % m_iCapacity;
+	int size = Size_Queue();
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << m_pQueue[idx] << " ";
+		idx = (idx + 1) % m_iCapacity;
+	}
+	cout << endl;
 }
