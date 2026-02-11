@@ -1,6 +1,7 @@
 #include <iostream>
 #include "MyQueue.h"
 #include "MyStack.h"
+#include "MySingleLinkedList.h"
 
 using namespace std;
 
@@ -12,6 +13,16 @@ void Print_Arr(int* _iArr, int _iSize)
 	}
 	cout << endl;
 }
+
+typedef struct tagNode
+{
+	int Data = 0;
+	tagNode* pNextNode = nullptr;
+
+}NODE;
+
+
+#pragma region 사칙연산
 
 int Prec(char _Operator)
 {
@@ -113,29 +124,55 @@ int CalcutateOutFix(MyQueue<char>& _Output)
 	return iResult;
 }
 
+#pragma endregion
+
+
+void RecurPrint(NODE* pNode)
+{
+	if (nullptr == pNode)
+		return;
+
+	cout << pNode->Data << " ";
+	RecurPrint(pNode->pNextNode);
+
+}
+void IterPrint(NODE* pNode)
+{
+	NODE* pCurrent = pNode;
+
+	while (true)
+	{
+		cout << pCurrent->Data << " ";
+		pCurrent = pCurrent->pNextNode;
+
+		if (pCurrent->pNextNode == nullptr)
+		{
+			cout << pCurrent->Data << endl;
+			break;
+		}
+	}
+
+	delete pCurrent;
+	pCurrent = nullptr;
+}
 
 
 int main()
 {
-	const char Infix[] = "(1+2)*3";
-	int iSize = sizeof(Infix) - 1;
-	
-	MyQueue<char>Infixq(iSize);
+	CMySingleLinkedList<int> SLL;
+	SLL.Push_Back_SLL(1);
+	SLL.Push_Back_SLL(2);
+	SLL.Push_Back_SLL(3);
+	SLL.Push_Front_SLL(0);
 
-	for (int i = 0; i < iSize; i++)
-	{
-		Infixq.Enqueue(Infix[i]);
-	}
-
-	Infixq.Print_Queue();
-
-	MyQueue<char> Output(iSize);
-
-	InfixToPostFix(Infixq,Output);
-
-	Output.Print_Queue();
-	
-	cout << CalcutateOutFix(Output) << endl;
-
+	cout << SLL.Front_SLL() << endl;
+	cout << SLL.Back_SLL() << endl;
+	CMySingleLinkedList<int>::NODE* pNode = SLL.Find_SLL(3);
+	//SLL.Remove_SLL(pNode);
+	SLL.Insert_Back_SLL(pNode,4);
+	SLL.Pop_Back_SLL();
+	//SLL.Print_SLL();
+	SLL.Reverse_SLL();
+	SLL.Print_SLL();
 	return 0;
 }
