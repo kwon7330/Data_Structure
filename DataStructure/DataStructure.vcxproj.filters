@@ -42,6 +42,9 @@
     <ClCompile Include="MyDeque.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MyLinkedPolynomial.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MySort.h">
@@ -81,6 +84,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MySingleLinkedList.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLinkedPolynomial.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -33,6 +33,10 @@ public:
 	}
 
 public:
+	NODE*				Get_FristNode() const { return m_pFirstNode; }
+
+
+public:
 	int					Size_SLL();
 	bool				isEmpty_SLL();
 	T					Front_SLL();
@@ -237,6 +241,8 @@ CMySingleLinkedList<T>::Find_SLL(T Item)
 		}
 		pCurrentNode = pCurrentNode->pNextNode;
 	}
+
+	return nullptr;
 }
 
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "MyQueue.h"
 #include "MyStack.h"
-#include "MySingleLinkedList.h"
+#include "MyLinkedPolynomial.h"
 
 using namespace std;
 
@@ -20,7 +20,6 @@ typedef struct tagNode
 	tagNode* pNextNode = nullptr;
 
 }NODE;
-
 
 #pragma region 사칙연산
 
@@ -159,20 +158,23 @@ void IterPrint(NODE* pNode)
 
 int main()
 {
-	CMySingleLinkedList<int> SLL;
-	SLL.Push_Back_SLL(1);
-	SLL.Push_Back_SLL(2);
-	SLL.Push_Back_SLL(3);
-	SLL.Push_Front_SLL(0);
+	CMyLinkedPolynomial Poly;
+	Poly.NewTerm_SLP(3,2);
+	Poly.NewTerm_SLP(2,1);
+	Poly.NewTerm_SLP(4,3);
+	Poly.NewTerm_SLP(1,1);
+	Poly.Print_SLP();
+	cout << " = " << Poly.Eval_SLP(1.f) << endl;
 
-	cout << SLL.Front_SLL() << endl;
-	cout << SLL.Back_SLL() << endl;
-	CMySingleLinkedList<int>::NODE* pNode = SLL.Find_SLL(3);
-	//SLL.Remove_SLL(pNode);
-	SLL.Insert_Back_SLL(pNode,4);
-	SLL.Pop_Back_SLL();
-	//SLL.Print_SLL();
-	SLL.Reverse_SLL();
-	SLL.Print_SLL();
+	CMyLinkedPolynomial Poly2;
+	Poly2.NewTerm_SLP(2,2);
+	Poly2.NewTerm_SLP(1,1);
+	Poly2.Print_SLP();
+	cout << " = " << Poly2.Eval_SLP(1.f) << endl;
+
+	CMyLinkedPolynomial Poly3(Poly.Add_SLP(Poly2));
+
+	Poly3.Print_SLP();
+
 	return 0;
 }

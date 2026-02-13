@@ -127,6 +127,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyArray2D.cpp" />
     <ClCompile Include="MyDeque.cpp" />
+    <ClCompile Include="MyLinkedPolynomial.cpp" />
     <ClCompile Include="MyMatrix.cpp" />
     <ClCompile Include="MyPolynomial.cpp" />
     <ClCompile Include="MySort.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="CMyString.h" />
     <ClInclude Include="MyArray2D.h" />
     <ClInclude Include="MyDeque.h" />
+    <ClInclude Include="MyLinkedPolynomial.h" />
     <ClInclude Include="MyMatrix.h" />
     <ClInclude Include="MyPolynomial.h" />
     <ClInclude Include="MyQueue.h" />
