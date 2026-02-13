@@ -1,7 +1,7 @@
 #include <iostream>
 #include "MyQueue.h"
 #include "MyStack.h"
-#include "MyLinkedPolynomial.h"
+#include "MyDoubleLinkedList.h"
 
 using namespace std;
 
@@ -158,23 +158,24 @@ void IterPrint(NODE* pNode)
 
 int main()
 {
-	CMyLinkedPolynomial Poly;
-	Poly.NewTerm_SLP(3,2);
-	Poly.NewTerm_SLP(2,1);
-	Poly.NewTerm_SLP(4,3);
-	Poly.NewTerm_SLP(1,1);
-	Poly.Print_SLP();
-	cout << " = " << Poly.Eval_SLP(1.f) << endl;
+	CMyDoubleLinkedList<int> DLL;
+	DLL.Push_Back_DLL(1);
+	DLL.Push_Back_DLL(2);
+	DLL.Push_Front_DLL(0);
 
-	CMyLinkedPolynomial Poly2;
-	Poly2.NewTerm_SLP(2,2);
-	Poly2.NewTerm_SLP(1,1);
-	Poly2.Print_SLP();
-	cout << " = " << Poly2.Eval_SLP(1.f) << endl;
+	DLL.Print_DLL();
+	cout << endl;
 
-	CMyLinkedPolynomial Poly3(Poly.Add_SLP(Poly2));
+	DLL.Reverse_DLL();
+	DLL.Print_DLL();
 
-	Poly3.Print_SLP();
+	CMyDoubleLinkedList<int>::NODE* pNode = DLL.Find_DLL(2);
+
+	if(nullptr != pNode)
+		cout << pNode->Item << endl;
+	
+	DLL.Remove_DLL(pNode);
+	DLL.Print_DLL();
 
 	return 0;
 }
