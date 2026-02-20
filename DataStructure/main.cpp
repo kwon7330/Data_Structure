@@ -1,7 +1,7 @@
 #include <iostream>
 #include "MyQueue.h"
 #include "MyStack.h"
-#include "MyDoubleLinkedList.h"
+#include "MyBinaryTree.h"
 
 using namespace std;
 
@@ -158,24 +158,19 @@ void IterPrint(NODE* pNode)
 
 int main()
 {
-	CMyDoubleLinkedList<int> DLL;
-	DLL.Push_Back_DLL(1);
-	DLL.Push_Back_DLL(2);
-	DLL.Push_Front_DLL(0);
+	using Node = CMyBinaryTree<int>::NODE;
 
-	DLL.Print_DLL();
-	cout << endl;
+	Node* pNode1 = new Node{ 1,nullptr,nullptr };
+	Node* pNode2 = new Node{ 2,pNode1,nullptr };
+	Node* pNode3 = new Node{ 3,nullptr, nullptr };
+	Node* pNode4 = new Node{ 4, nullptr, nullptr };
+	Node* pNode5 = new Node{ 5, nullptr, pNode4 };
+	Node* pNode6 = new Node{ 6, pNode2,pNode5 };
 
-	DLL.Reverse_DLL();
-	DLL.Print_DLL();
+	pNode1->pRight = pNode3;
 
-	CMyDoubleLinkedList<int>::NODE* pNode = DLL.Find_DLL(2);
-
-	if(nullptr != pNode)
-		cout << pNode->Item << endl;
-	
-	DLL.Remove_DLL(pNode);
-	DLL.Print_DLL();
+	CMyBinaryTree<int>Tree(pNode6);
+	cout << Tree.Sum_BT() << endl;
 
 	return 0;
 }

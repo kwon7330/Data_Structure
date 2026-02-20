@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="CMyString.h" />
     <ClInclude Include="MyArray2D.h" />
+    <ClInclude Include="MyBinaryTree.h" />
     <ClInclude Include="MyDeque.h" />
     <ClInclude Include="MyDoubleLinkedList.h" />
     <ClInclude Include="MyLinkedPolynomial.h" />
