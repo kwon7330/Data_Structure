@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CMyString.cpp" />
+    <ClCompile Include="ExpressionTree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyArray2D.cpp" />
     <ClCompile Include="MyDeque.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMyString.h" />
+    <ClInclude Include="ExpressionTree.h" />
     <ClInclude Include="MyArray2D.h" />
     <ClInclude Include="MyBinaryTree.h" />
     <ClInclude Include="MyDeque.h" />

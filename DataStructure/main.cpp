@@ -2,7 +2,7 @@
 #include "MyQueue.h"
 #include "MyStack.h"
 #include "MyBinaryTree.h"
-
+#include "ExpressionTree.h"
 using namespace std;
 
 void Print_Arr(int* _iArr, int _iSize)
@@ -158,7 +158,7 @@ void IterPrint(NODE* pNode)
 
 int main()
 {
-	using Node = CMyBinaryTree<int>::NODE;
+	/*using Node = CMyBinaryTree<int>::NODE;
 
 	Node* pNode1 = new Node{ 1,nullptr,nullptr };
 	Node* pNode2 = new Node{ 2,pNode1,nullptr };
@@ -175,8 +175,10 @@ int main()
 	int iHeight = Tree.Height_BT();
 
 	
-	Tree.IterPostOrder();
+	Tree.IterPostOrder();*/
 
+	const char* Infix = { "(3 + 5) * 2" };
+	CExpressionTree<char>Tree(Infix);
 
 	return 0;
 }
