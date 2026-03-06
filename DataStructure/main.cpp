@@ -174,11 +174,8 @@ int main()
 	cout << Tree.Height_BT() << endl;
 	int iHeight = Tree.Height_BT();
 
-	for (int i = 0; i <= iHeight; i++)
-	{
-		Tree.Levelorder(pNode6, i);
-	}
 	
+	Tree.IterPostOrder();
 
 
 	return 0;

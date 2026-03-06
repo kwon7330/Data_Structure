@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -39,11 +41,14 @@ public:
 	void			Inorder(NODE* pNode);
 	void			Postorder() { Postorder(m_pRoot); }
 	void			Postorder(NODE* pNode);
-	void			Levelorder(NODE* pNode, int iLevel);
+	void			Levelorder();
+	void			IterPreorder();
+	void			IterInorder();
+	void			IterPostOrder();
 	void			Delete_Tree(NODE* pNode);
 	
 private:
-	NODE* m_pRoot = { nullptr };
+	NODE*			m_pRoot = { nullptr };
 
 
 };
@@ -130,21 +135,99 @@ inline void CMyBinaryTree<T>::Postorder(NODE* pNode)
 }
 
 template<typename T>
-inline void CMyBinaryTree<T>::Levelorder(NODE* pNode, int iLevel)
+inline void CMyBinaryTree<T>::Levelorder()
 {
-	if (nullptr == pNode)
+	queue<NODE*> que;
+	NODE* pCurrentNode = m_pRoot;
+
+	while (nullptr != pCurrentNode)
+	{
+		Visit_BT(pCurrentNode);
+
+		if (nullptr != pCurrentNode->pLeft)
+			que.push(pCurrentNode->pLeft);
+		if (nullptr != pCurrentNode->pRight)
+			que.push(pCurrentNode->pRight);
+		if (que.empty())
+			return;
+
+		pCurrentNode = que.front();
+		que.pop();
+	}
+}
+
+template<typename T>
+inline void CMyBinaryTree<T>::IterPreorder()
+{
+	if (nullptr == m_pRoot)
 		return;
 
-	if (1 == iLevel)
-		Visit_BT(pNode);
-	else
+	stack<NODE*> Stk;
+	Stk.push(m_pRoot);
+
+	while (!Stk.empty())
 	{
-		Levelorder(pNode->pLeft, iLevel - 1);
-		Levelorder(pNode->pRight, iLevel - 1);
+		NODE* pCurrentNode = Stk.top();
+		Stk.pop();
+		Visit_BT(pCurrentNode);
+
+		if (nullptr != pCurrentNode->pRight)
+			Stk.push(pCurrentNode->pRight);
+		if (nullptr != pCurrentNode->pLeft)
+			Stk.push(pCurrentNode->pLeft);
 	}
 
+}
 
-	
+template<typename T>
+inline void CMyBinaryTree<T>::IterInorder()
+{
+	if (nullptr == m_pRoot)
+		return;
+
+	stack<NODE*> Stk;
+	NODE* pCurrentNode = m_pRoot;
+
+	while (pCurrentNode || !Stk.empty())
+	{
+		// 우선 왼쪽으로 쭉 들어간다.
+		while (pCurrentNode)
+		{
+			Stk.push(pCurrentNode);
+			pCurrentNode = pCurrentNode->pLeft;
+		}
+		// 왼쪽 끝 노드를 현재 노드를 설정하고
+		pCurrentNode = Stk.top();
+		Stk.pop();
+		Visit_BT(pCurrentNode);
+
+		pCurrentNode = pCurrentNode->pRight;
+	}
+
+}
+
+template<typename T>
+inline void CMyBinaryTree<T>::IterPostOrder()
+{
+	stack<NODE*> Stk1, Stk2;
+	Stk1.push(m_pRoot);
+	while (!Stk1.empty())
+	{
+		NODE* pCurrentNode = Stk1.top();
+		Stk1.pop();
+		Stk2.push(pCurrentNode);
+
+		if (pCurrentNode->pLeft)
+			Stk1.push(pCurrentNode->pLeft);
+		if (pCurrentNode->pRight)
+			Stk1.push(pCurrentNode->pRight);
+	}
+
+	while (!Stk2.empty())
+	{
+		Visit_BT(Stk2.top());
+		Stk2.pop();
+	}
 }
 
 template<typename T>
