@@ -171,6 +171,15 @@ int main()
 
 	CMyBinaryTree<int>Tree(pNode6);
 	cout << Tree.Sum_BT() << endl;
+	cout << Tree.Height_BT() << endl;
+	int iHeight = Tree.Height_BT();
+
+	for (int i = 0; i <= iHeight; i++)
+	{
+		Tree.Levelorder(pNode6, i);
+	}
+	
+
 
 	return 0;
 }
